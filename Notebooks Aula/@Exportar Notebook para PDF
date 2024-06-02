@@ -1,0 +1,6 @@
+Vídeo tutorial: https://www.youtube.com/watch?v=-Ti9Mm21uVc
+
+Passo 1 - Baixar uma cópia do notebook, no formato padrão ".ipynb"
+Passo 2 - Colar na raiz do Google Docs, abaixo do Samples
+Passo 3 - Rodar o código !jupyter nbconvert --to html caminho_do_notebook.ipynb
+Passo 4 - Baixar o HTML que foi gerado e abrir em um navegador para imprimir como PDF
