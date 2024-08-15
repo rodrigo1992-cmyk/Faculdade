@@ -1,0 +1,51 @@
+id,nome,preco,quantidade
+1,Arroz,4.5,100
+2,Feijão,6.0,80
+3,Macarrão,3.2,150
+4,Açúcar,2.5,200
+5,Sal,1.0,300
+6,Óleo de soja,7.5,60
+7,Picanha Peça,64.0,120
+8,Pão,4.0,90
+9,Queijo,12.0,40
+10,Presunto,9.0,50
+11,Manteiga,5.5,70
+12,Ovo,0.5,200
+13,Air Fryer,258.0,30
+14,Carne bovina,25.0,20
+15,Peixe,15.0,25
+16,Tomate,4.0,150
+17,Cebola,2.0,180
+18,Conjunto de Pratos,183.0,90
+19,Batata,1.5,200
+20,Frigideira,58.2,160
+21,Brócolis,5.0,70
+22,Espinafre,3.5,60
+23,Maçã,1.8,120
+24,Panela Inox,120.2,140
+25,Laranja,2.0,130
+26,Uva,4.0,80
+27,Pera,3.0,90
+28,Manga,2.5,70
+29,Limão,1.0,200
+30,Cerveja,5.0,50
+31,Edredom,90.0,15
+32,Refrigerante,3.0,100
+33,Suco,4.0,90
+34,Chocolate,2.5,80
+35,Biscoito,3.0,150
+36,Bolacha,2.0,140
+37,Iogurte,2.8,100
+38,Sopa,4.5,60
+39,Tempero,1.5,120
+40,Molho de tomate,3.0,80
+41,lençol Casal,55.0,70
+42,Mostarda,3.5,60
+43,Maionese,5.0,50
+44,Pasta de dente,4.0,90
+45,Sabonete,3.0,100
+46,Shampoo,10.0,40
+47,Pneu Pirelli,282.0,30
+48,Detergente,5.0,80
+49,Desinfetante,6.0,70
+50,Papel toalha,3.5,90

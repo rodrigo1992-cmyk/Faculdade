@@ -1,0 +1,22 @@
+[
+    {
+        "nome": "Mariana",
+        "idade": 20,
+        "curso": "Ciência de Dados"
+    },
+    {
+        "nome": "Thiago",
+        "idade": 24,
+        "curso": "Ciência de Dados"
+    },
+    {
+        "nome": "Camila",
+        "idade": 22,
+        "curso": "Ciência de Dados"
+    },
+    {
+        "nome": "Pedro",
+        "idade": 23,
+        "curso": "Ciência de Dados"
+    }
+]

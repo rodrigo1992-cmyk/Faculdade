@@ -1,0 +1,4 @@
+Estruturados: 9
+Semi-Estruturados: 16
+Desestruturados: 13
+Temporais: 6

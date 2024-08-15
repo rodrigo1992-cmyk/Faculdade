@@ -1,0 +1,27 @@
+
+Temporais
+
+Data,Venda
+2024-08-01,Iphone 14
+2024-08-02,Galaxy S24
+
+
+Semi-Estruturados
+
+[
+{"ID": 1, "Nome": "Rodrigo", "Idade": 32, "Email": "rodrigo@gmail.com"},
+{"ID": 2, "Nome": "Jonatas", "Idade": 27, "Email": "jonatas@gmail.com"}
+]
+
+
+Estruturados
+
+Nome,Idade,Email
+Rodrigo,32,rodrigo@gmail.com
+Jonatas,27,jonatas@gmail.com
+
+
+Desestruturados
+
+Meu nome é Rodrigo Mesquita tenho 32 anos e meu email é rodrigo@gmail.com
+
