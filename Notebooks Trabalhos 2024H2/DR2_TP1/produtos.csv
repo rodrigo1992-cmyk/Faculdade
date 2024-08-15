@@ -2,9 +2,9 @@ id,nome,preco,quantidade
 1,Arroz,4.5,100
 2,Feijão,6.0,80
 3,Macarrão,3.2,150
-4,Açúcar,2.5,200
+4,Liquidificador,88,200
 5,Sal,1.0,300
-6,Óleo de soja,7.5,60
+6,Microondas,380.5,60
 7,Picanha Peça,64.0,120
 8,Pão,4.0,90
 9,Queijo,12.0,40
@@ -44,7 +44,7 @@ id,nome,preco,quantidade
 43,Maionese,5.0,50
 44,Pasta de dente,4.0,90
 45,Sabonete,3.0,100
-46,Shampoo,10.0,40
+46,Batedeira,99.0,40
 47,Pneu Pirelli,282.0,30
 48,Detergente,5.0,80
 49,Desinfetante,6.0,70
