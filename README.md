@@ -16,15 +16,21 @@ Passo a passo criação do ambiente virtual e inicialização do GIT
 # Criar e acessar o diretório do projeto
 mkdir meu_projeto
 cd meu_projeto
+
+# Iniciar o VsCode (importante o ponto no final)
+code .
+
 # Criar e ativar o ambiente virtual
 $env:PIPENV_VENV_IN_PROJECT=1
 pipenv install
+
 # Criar o arquivo .gitignore
 echo "Pipfile.lock" >> .gitignore
 echo "__pycache__/" >> .gitignore
 echo "*.pyc" >> .gitignore
 echo "*.pyo" >> .gitignore
 echo ".venv/" >> .gitignore
+
 # Iniciar o repositório Git
 git init
 git add .
