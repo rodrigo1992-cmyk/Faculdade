@@ -20,8 +20,10 @@ cd meu_projeto
 code .
 
 ### Criar e ativar o ambiente virtual
-$env:PIPENV_VENV_IN_PROJECT=1
-pipenv install
+* $env:PIPENV_VENV_IN_PROJECT=1
+* pipenv install
+### Verificar se o ambiente está ativo (Se estiver ativo irá aparecer o caminho, senão dará erro)
+* pipenv --venv
 
 ### Criar o arquivo .gitignore
 echo "Pipfile.lock" >> .gitignore
