@@ -10,7 +10,7 @@
 5.Merge (Mesclar): Após a revisão do seu pull request e aprovação das alterações, um colaborador com permissões adequadas pode mesclar (merge) seu código na branch principal. Isso significa que suas alterações agora fazem parte do código principal do projeto.
 
 # INSTRUÇÕES ENV
-
+## Este arquivo é sensacional e ensina a utilizar o Pyenv, PipX e o PipEnv: https://blog.devops.dev/best-practices-for-virtual-environments-for-data-science-pyenv-pipx-pipenv-4140b2974c7c
 Passo a passo criação do ambiente virtual e inicialização do GIT
 ### Criar e acessar o diretório do projeto
 mkdir meu_projeto
