@@ -22,6 +22,7 @@ code .
 ### Criar e ativar o ambiente virtual
 * $env:PIPENV_VENV_IN_PROJECT=1
 * pipenv install
+* pipenv shell
 ### Verificar se o ambiente está ativo (Se estiver ativo irá aparecer o caminho, senão dará erro)
 * pipenv --venv
 
