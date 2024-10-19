@@ -13,8 +13,8 @@
 ## Este arquivo é sensacional e ensina a utilizar o Pyenv, PipX e o PipEnv: https://blog.devops.dev/best-practices-for-virtual-environments-for-data-science-pyenv-pipx-pipenv-4140b2974c7c
 Passo a passo criação do ambiente virtual e inicialização do GIT
 ### Criar e acessar o diretório do projeto
-mkdir meu_projeto
-cd meu_projeto
+* mkdir meu_projeto
+* cd meu_projeto
 
 ### Iniciar o VsCode (importante o ponto no final)
 code .
@@ -29,35 +29,35 @@ code .
 * pipenv --venv
 
 ### Criar o arquivo .gitignore
-echo "Pipfile.lock" >> .gitignore
-echo "__pycache__/" >> .gitignore
-echo "*.pyc" >> .gitignore
-echo "*.pyo" >> .gitignore
-echo ".venv/" >> .gitignore
+* echo "Pipfile.lock" >> .gitignore
+* echo "__pycache__/" >> .gitignore
+* echo "*.pyc" >> .gitignore
+* echo "*.pyo" >> .gitignore
+* echo ".venv/" >> .gitignore
 
 # Iniciar o repositório Git
-git init
-git add .
-git commit -m "Initial commit"
+* git init
+* git add .
+* git commit -m "Initial commit"
 
 ### Checar pacotes e instalar novos
-pip list
-pipenv install requests pandas jupyter
-pip list
+* pip list
+* pipenv install requests pandas jupyter
+* pip list
 
 Outras Instruções
 ### Encerrar o pipenv
-deactivate
+* deactivate
 
 ### Limpar o cache do GIT
-git rm -r --cached .
-git add .
-git commit -m "Limpar cache do Git"
+* git rm -r --cached .
+* git add .
+* git commit -m "Limpar cache do Git"
 
 ### Limpar o cache de um arquivo específico no GIT
-git rm --cached nome_do_arquivo
-git add .
-git commit -m "Limpar cache do Git"
+* git rm --cached nome_do_arquivo
+* git add .
+* git commit -m "Limpar cache do Git"
 
 ### Deletar o ambiente virtual (tem de estar dentro do diretório do projeto)
 pipenv --rm
