@@ -9,15 +9,15 @@
 
 5.Merge (Mesclar): Após a revisão do seu pull request e aprovação das alterações, um colaborador com permissões adequadas pode mesclar (merge) seu código na branch principal. Isso significa que suas alterações agora fazem parte do código principal do projeto.
 
+# INSTRUÇÕES STREAMLIT
+* Não nomear o arquivo do streamlit como app.py se o nome da pasta também for app
+* Invés de usar "streamlit run...", usar "python -m streamlit run..." como no código abaixo, pois senão ele não irá reconhecer a importação de arquivos em outras pastas do projeto
+  ** python -m streamlit run app\streamlit\app_streamlit.py --server.port=8087 --browser.serverAddress='177.192.12.238'
+
+
 # INSTRUÇÕES ENV
 ## Este arquivo é sensacional e ensina a utilizar o Pyenv, PipX e o PipEnv: https://blog.devops.dev/best-practices-for-virtual-environments-for-data-science-pyenv-pipx-pipenv-4140b2974c7c
 Passo a passo criação do ambiente virtual e inicialização do GIT
-### Criar e acessar o diretório do projeto
-* mkdir meu_projeto
-* cd meu_projeto
-
-### Iniciar o VsCode (importante o ponto no final)
-code .
 
 ### Criar e ativar o ambiente virtual
 * $env:PIPENV_VENV_IN_PROJECT=1
@@ -42,7 +42,7 @@ code .
 
 ### Checar pacotes e instalar novos
 * pip list
-* pipenv install requests pandas jupyter
+* pipenv install pandas jupyter
 * pip list
 
 Outras Instruções
