@@ -12,7 +12,7 @@
 # INSTRUÇÕES STREAMLIT
 * Não nomear o arquivo do streamlit como app.py se o nome da pasta também for app
 * Invés de usar "streamlit run...", usar "python -m streamlit run..." como no código abaixo, pois senão ele não irá reconhecer a importação de arquivos em outras pastas do projeto
-  ** python -m streamlit run app\streamlit\app_streamlit.py --server.port=8087 --browser.serverAddress='177.192.12.238'
+  * python -m streamlit run app\streamlit\app_streamlit.py --server.port=8087 --browser.serverAddress='177.192.12.238'
 
 
 # INSTRUÇÕES ENV
