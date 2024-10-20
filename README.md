@@ -24,7 +24,7 @@ code .
 * pipenv install
 * pipenv shell
 * Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-* .\.venv\Scripts\Activate.ps1
+* .venv\Scripts\Activate.ps1
 ### Verificar se o ambiente está ativo (Se estiver ativo irá aparecer o caminho, senão dará erro)
 * pipenv --venv
 
