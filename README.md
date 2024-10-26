@@ -14,6 +14,10 @@
 * Invés de usar "streamlit run...", usar "python -m streamlit run..." como no código abaixo, pois senão ele não irá reconhecer a importação de arquivos em outras pastas do projeto
   * python -m streamlit run app\streamlit\app_streamlit.py --server.port=8087 --browser.serverAddress='177.192.12.238'
 
+# INSTRUÇÕES UVICORN
+* pip install fastapi uvicorn
+* Após instalado, navegar até a página do router e executar o código abaixo:
+  * uvicorn main:app --reload
 
 # INSTRUÇÕES ENV
 ## Este arquivo é sensacional e ensina a utilizar o Pyenv, PipX e o PipEnv: https://blog.devops.dev/best-practices-for-virtual-environments-for-data-science-pyenv-pipx-pipenv-4140b2974c7c
