@@ -1,3 +1,5 @@
+# USAR POR PADRÃO NO VSCODE O PYTHON QUE INSTALEI PELO MINICONDA. ESTÁ LISTADO COMO (BASE) VERSÃO 3.12.4
+
 # INSTRUÇÕES GIT
 1.Pull (Puxar): Antes de começar a trabalhar em um projeto, é uma boa prática atualizar o seu repositório local com as últimas alterações feitas por outros colaboradores. Para fazer isso, você utiliza o comando git pull, que puxa as alterações do repositório remoto para o seu repositório local.
 
