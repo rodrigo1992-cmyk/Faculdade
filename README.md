@@ -11,57 +11,68 @@
 
 5.Merge (Mesclar): Após a revisão do seu pull request e aprovação das alterações, um colaborador com permissões adequadas pode mesclar (merge) seu código na branch principal. Isso significa que suas alterações agora fazem parte do código principal do projeto.
 
+# COMO IMPRIMIR
+* Abrir o notebook clicar nos 3 pontinhos e selecionar EXPORTAR (Não são pontinhos os que ficam no canto direito, são os que ficam na mesma linha do "Executar Tudo", quase no meio da tela)
+* Exportar primeiro para html (usando VSCode) e só depois para PDF (usando o browser)
+* É necessário que esteja instalado o pacote nbconvert, selecionar o Python BASE e não o do VENV, pois já está instalado nele.
+* Se tiver imagens no notebook, deve ser colocado o HTML na mesma pasta do notebook, pois ele tentará ler o caminho relativo das imagens, se o html não estiver no local original do notebook as imagens irão crashar.
+
+
+# INSTRUÇÕES STREAMLIT
+* Não nomear o arquivo do streamlit como app.py se o nome da pasta também for app
+* Invés de usar "streamlit run...", usar "python -m streamlit run..." como no código abaixo, pois senão ele não irá reconhecer a importação de arquivos em outras pastas do projeto
+  * python -m streamlit run app\streamlit\app_streamlit.py --server.port=8087 --browser.serverAddress='177.192.12.238'
+
+# INSTRUÇÕES UVICORN
+* Instalar o uvicorn + fastapi localmente no base (fora do virtual env)
+  * pip install uvicorn fastapi
+* Após instalado, navegar até a página do router e executar o código abaixo (fora do virtual env):
+  * uvicorn main:app --reload
+* No pipenv só precisa instalar o fastapi, que será utilizado pelo Streamlit
+
 # INSTRUÇÕES ENV
 ## Este arquivo é sensacional e ensina a utilizar o Pyenv, PipX e o PipEnv: https://blog.devops.dev/best-practices-for-virtual-environments-for-data-science-pyenv-pipx-pipenv-4140b2974c7c
 Passo a passo criação do ambiente virtual e inicialização do GIT
-### Criar e acessar o diretório do projeto
-mkdir meu_projeto
-cd meu_projeto
-
-### Iniciar o VsCode (importante o ponto no final)
-code .
 
 ### Criar e ativar o ambiente virtual
 * $env:PIPENV_VENV_IN_PROJECT=1
 * pipenv install
 * pipenv shell
+* Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+* .\\.venv\Scripts\Activate.ps1
 ### Verificar se o ambiente está ativo (Se estiver ativo irá aparecer o caminho, senão dará erro)
 * pipenv --venv
 
 ### Criar o arquivo .gitignore
-echo "Pipfile.lock" >> .gitignore
-echo "__pycache__/" >> .gitignore
-echo "*.pyc" >> .gitignore
-echo "*.pyo" >> .gitignore
-echo ".venv/" >> .gitignore
+* echo "Pipfile.lock" >> .gitignore
+* echo "__pycache__/" >> .gitignore
+* echo "*.pyc" >> .gitignore
+* echo "*.pyo" >> .gitignore
+* echo ".venv/" >> .gitignore
 
 # Iniciar o repositório Git
-git init
-git add .
-git commit -m "Initial commit"
-### Iniciar ambiente virtual
-pipenv shell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-.\.venv\Scripts\Activate.ps1
+* git init
+* git add .
+* git commit -m "Initial commit"
 
 ### Checar pacotes e instalar novos
-pip list
-pipenv install requests pandas jupyter
-pip list
+* pip list
+* pipenv install pandas jupyter
+* pip list
 
 Outras Instruções
 ### Encerrar o pipenv
-deactivate
+* deactivate
 
 ### Limpar o cache do GIT
-git rm -r --cached .
-git add .
-git commit -m "Limpar cache do Git"
+* git rm -r --cached .
+* git add .
+* git commit -m "Limpar cache do Git"
 
 ### Limpar o cache de um arquivo específico no GIT
-git rm --cached nome_do_arquivo
-git add .
-git commit -m "Limpar cache do Git"
+* git rm --cached nome_do_arquivo
+* git add .
+* git commit -m "Limpar cache do Git"
 
 ### Deletar o ambiente virtual (tem de estar dentro do diretório do projeto)
 pipenv --rm
