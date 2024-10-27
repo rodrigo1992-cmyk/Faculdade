@@ -9,6 +9,13 @@
 
 5.Merge (Mesclar): Após a revisão do seu pull request e aprovação das alterações, um colaborador com permissões adequadas pode mesclar (merge) seu código na branch principal. Isso significa que suas alterações agora fazem parte do código principal do projeto.
 
+# COMO IMPRIMIR
+* Abrir o notebook clicar nos 3 pontinhos (Não são os que ficam no canto direito, são os que ficam na mesma linha do "Executar Tudo", quase no meio da tela)
+* Exportar primeiro para html (usando VSCode) e só depois para PDF (usando o browser)
+* É necessário que esteja instalado o pacote nbconvert, selecionar o Python BASE e não o do VENV, pois já está instalado nele.
+* Se tiver imagens no notebook, deve ser colocado o HTML na mesma pasta do notebook, pois ele tentará ler o caminho relativo das imagens, se o html não estiver no local original do notebook as imagens irão crashar.
+
+
 # INSTRUÇÕES STREAMLIT
 * Não nomear o arquivo do streamlit como app.py se o nome da pasta também for app
 * Invés de usar "streamlit run...", usar "python -m streamlit run..." como no código abaixo, pois senão ele não irá reconhecer a importação de arquivos em outras pastas do projeto
