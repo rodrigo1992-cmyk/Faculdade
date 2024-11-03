@@ -1,6 +1,8 @@
-# USAR POR PADRÃO NO VSCODE O PYTHON QUE INSTALEI PELO MINICONDA. ESTÁ LISTADO COMO (BASE) VERSÃO 3.12.4
+## USAR POR PADRÃO NO VSCODE O PYTHON QUE INSTALEI PELO MINICONDA. ESTÁ LISTADO COMO (BASE) VERSÃO 3.12.4
 
-# INSTRUÇÕES GIT
+
+
+## -------------------------------------------INSTRUÇÕES GIT-------------------------------------
 1.Pull (Puxar): Antes de começar a trabalhar em um projeto, é uma boa prática atualizar o seu repositório local com as últimas alterações feitas por outros colaboradores. Para fazer isso, você utiliza o comando git pull, que puxa as alterações do repositório remoto para o seu repositório local.
 
 2.Commit (Confirmar): Após realizar suas alterações no código-fonte, você precisa confirmar essas mudanças no repositório local. Isso é feito através do comando git commit, que prepara as alterações para serem adicionadas ao histórico do repositório.
@@ -11,26 +13,38 @@
 
 5.Merge (Mesclar): Após a revisão do seu pull request e aprovação das alterações, um colaborador com permissões adequadas pode mesclar (merge) seu código na branch principal. Isso significa que suas alterações agora fazem parte do código principal do projeto.
 
-# COMO IMPRIMIR
+
+
+
+## -----------------------INSTRUÇÕES SOBRE COMO IMPRIMIR NOTEBOOK-------------------------
 * Abrir o notebook clicar nos 3 pontinhos e selecionar EXPORTAR (Não são pontinhos os que ficam no canto direito, são os que ficam na mesma linha do "Executar Tudo", quase no meio da tela)
 * Exportar primeiro para html (usando VSCode) e só depois para PDF (usando o browser)
 * É necessário que esteja instalado o pacote nbconvert, selecionar o Python BASE e não o do VENV, pois já está instalado nele.
 * Se tiver imagens no notebook, deve ser colocado o HTML na mesma pasta do notebook, pois ele tentará ler o caminho relativo das imagens, se o html não estiver no local original do notebook as imagens irão crashar.
 
 
-# INSTRUÇÕES STREAMLIT
+
+
+
+## -------------------------------------INSTRUÇÕES STREAMLIT---------------------------------------
 * Não nomear o arquivo do streamlit como app.py se o nome da pasta também for app
 * Invés de usar "streamlit run...", usar "python -m streamlit run..." como no código abaixo, pois senão ele não irá reconhecer a importação de arquivos em outras pastas do projeto
   * python -m streamlit run app\streamlit\app_streamlit.py --server.port=8087 --browser.serverAddress='177.192.12.238'
 
-# INSTRUÇÕES UVICORN
+
+
+
+## ---------------------------------INSTRUÇÕES UVICORN----------------------------------------------
 * Instalar o uvicorn + fastapi localmente no base (fora do virtual env)
   * pip install uvicorn fastapi
 * Após instalado, navegar até a página do router e executar o código abaixo (fora do virtual env):
   * uvicorn main:app --reload
 * No pipenv só precisa instalar o fastapi, que será utilizado pelo Streamlit
 
-# INSTRUÇÕES ENV
+
+
+
+## ------------------------------------INSTRUÇÕES PIPENV--------------------------------------------
 ## Este arquivo é sensacional e ensina a utilizar o Pyenv, PipX e o PipEnv: https://blog.devops.dev/best-practices-for-virtual-environments-for-data-science-pyenv-pipx-pipenv-4140b2974c7c
 Passo a passo criação do ambiente virtual e inicialização do GIT
 
@@ -60,7 +74,7 @@ Passo a passo criação do ambiente virtual e inicialização do GIT
 * pipenv install pandas jupyter
 * pip list
 
-Outras Instruções
+## Outras Instruções
 ### Encerrar o pipenv
 * deactivate
 
@@ -69,11 +83,15 @@ Outras Instruções
 * git add .
 * git commit -m "Limpar cache do Git"
 
-### Limpar o cache de um arquivo específico no GIT
-* git rm --cached nome_do_arquivo
-* git add .
-* git commit -m "Limpar cache do Git"
+* ### Deletar o ambiente virtual (tem de estar dentro do diretório do projeto)
+* pipenv --rm
+* 
+### Remover o diretório .git e interromper o Git (Tem de estar dentro do diretório do projeto): 
+* Remove-Item -Recurse -Force .git
 
+
+
+## --------------------IMPORTAR ARQUIVOS DE DEPENDENCIAS LOCAIS---------------------------
 ### Erro ao importar funções de outros arquivos locais
 * Adicionar as 3 linhas abaixo como primeiro comando dentro que está chamando a importação. Esse comando adiciona o caminho absoluto da pasta pai nas variáveis de ambiente.
   * OBS: Não precisa ter arquivo __init.py__ dentro da pasta app, somente nas pastas filho.
@@ -83,7 +101,10 @@ Outras Instruções
 * sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 
-### Deletar o ambiente virtual (tem de estar dentro do diretório do projeto)
-pipenv --rm
-### Remover o diretório .git e interromper o Git (Tem de estar dentro do diretório do projeto): 
-Remove-Item -Recurse -Force .git
+
+## ----------------------------------INSTRUÇÕES DE MARKDOWN----------------------------------
+**Alterar a cor do texto**
+* <span style="color: red;">Este texto está em vermelho.</span>
+
+**Pintar o fundo da célula de outra cor e adicionar bordas redondas**
+<div style="background-color: lightblue; padding: 10px; border-radius: 5px;">
