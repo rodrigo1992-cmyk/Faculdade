@@ -16,7 +16,7 @@
 
 
 
-## -----------------------INSTRUÇÕES SOBRE COMO IMPRIMIR NOTEBOOK-------------------------
+## -----------------------INSTRUÇÕES SOBRE COMO IMPRIMIR NOTEBOOK------------------------
 * Abrir o notebook clicar nos 3 pontinhos e selecionar EXPORTAR (Não são pontinhos os que ficam no canto direito, são os que ficam na mesma linha do "Executar Tudo", quase no meio da tela)
 * Exportar primeiro para html (usando VSCode) e só depois para PDF (usando o browser)
 * É necessário que esteja instalado o pacote nbconvert, selecionar o Python BASE e não o do VENV, pois já está instalado nele.
@@ -85,7 +85,7 @@ Passo a passo criação do ambiente virtual e inicialização do GIT
 
 * ### Deletar o ambiente virtual (tem de estar dentro do diretório do projeto)
 * pipenv --rm
-* 
+  
 ### Remover o diretório .git e interromper o Git (Tem de estar dentro do diretório do projeto): 
 * Remove-Item -Recurse -Force .git
 
