@@ -98,7 +98,7 @@ Passo a passo criação do ambiente virtual e inicialização do GIT
   * A importação deve começar com a pasta app, exemplo: from app.router.routes import *
 * import sys
 * import os
-* sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+* sys.path.append(os.path.abspath(os.path.join(os.path.dirname(\_\_file\_\_), '..', '..')))
 
 
 
