@@ -74,6 +74,15 @@ Outras Instruções
 * git add .
 * git commit -m "Limpar cache do Git"
 
+### Erro ao importar funções de outros arquivos locais
+* Adicionar as 3 linhas abaixo como primeiro comando dentro que está chamando a importação. Esse comando adiciona o caminho absoluto da pasta pai nas variáveis de ambiente.
+  * OBS: Não precisa ter arquivo __init.py__ dentro da pasta app, somente nas pastas filho.
+  * A importação deve começar com a pasta app, exemplo: from app.router.routes import *
+* import sys
+* import os
+* sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
+
 ### Deletar o ambiente virtual (tem de estar dentro do diretório do projeto)
 pipenv --rm
 ### Remover o diretório .git e interromper o Git (Tem de estar dentro do diretório do projeto): 
