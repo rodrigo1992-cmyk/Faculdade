@@ -1,0 +1,38 @@
+#######################################
+## Inicialização dos serviços
+## Apenas um passo-a-passo p depois de reiniciar a VM / após instalação
+$ start-all.sh
+$ start-dfs.sh
+$ start-yarn.sh
+$ cd /opt/hadoop/hive/bbdd
+$ $HIVE_HOME/bin/hiveserver2 &  //Iniciar o Hive
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>INSTALAÇÃO DO PIG<<<<<<<<<<<<<<<<<<<<<<<<<<
+$ cd /home/hadoop/download
+$ wget -c https://dlcdn.apache.org/pig/pig-0.17.0/pig-0.17.0.tar.gz
+
+$ cd /opt/hadoop/
+$ tar zxvf /home/hadoop/download/pig-0.17.0.tar.gz
+$ mv pig-0.17.0 pig
+
+$ vim .bashrc
+  export HADOOP_HOME=/opt/hadoop
+  export JAVA_HOME=/home/hadoop/jdk
+  export HIVE_HOME=/opt/hadoop/hive
+  export PIG_HOME=/opt/hadoop/pig
+  export HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
+  export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$JAVA_HOME/bin:$HIVE_HOME/bin:$HIVE_HOME/conf:$PIG_HOME/bin
+  export PIG_CLASSPATH=$HADOOP_CONF_DIR
+$ source .bashrc
+$ pig -version
+$ pig -help
+$ pig
+  grunt> cd hdfs:///
+  grunt> ls
+
+
+
+
+

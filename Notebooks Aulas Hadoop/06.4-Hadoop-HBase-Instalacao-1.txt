@@ -1,0 +1,128 @@
+$ cd /home/hadoop/download
+$ wget https://dlcdn.apache.org/hbase/2.6.1/hbase-2.6.1-bin.tar.gz
+$ cd /opt/hadoop
+$ tar xvf /home/hadoop/download/hbase-2.6.1-bin.tar.gz
+$ mv hbase-2.6.1 hbase
+
+$ cd hbase
+$ cd conf
+$ vim hbase-site.xml
+  <property>
+    <name>hbase.rootdir</name>
+    <value>file:///opt/hadoop/hbase/data/hbase</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.property.dataDir</name>
+    <value>/opt/hadoop/hbase/data/zookeeper</value>
+  </property>
+  <property>
+    <name>hbase.unsafe.stream.capability.enforce</name>
+    <value>false</value>
+  </property>
+$ mkdir /opt/hadoop/hbase/data
+$ mkdir /opt/hadoop/hbase/data/hbase
+$ mkdir /opt/hadoop/hbase/data/zookeeper
+
+$ cd /opt/hadoop/hbase/bin
+$ ./start-hbase.sh
+$ jps
+$ cd /home/hadoop
+$ vi .bashrc
+  export HBASE_HOME=/opt/hadoop/hbase
+  export PATH=...:$HBASE_HOME/bin
+$ source .bashrc
+
+$ start-hbase.sh
+$ hbase shell
+  > help
+  > status
+  > version
+  > list
+  > create 'Table01', 'cf01'
+  > describe 'Table01'
+  > disable 'Table01'
+  > drop 'Table01'
+
+  # Cria a tabela 'empregados' com duas famílias de colunas: 'pessoal' e 'trabalho'
+  create 'empregados', 'pessoal', 'trabalho'
+
+  # Lista todas as tabelas disponíveis no HBase
+  list
+
+  # Exibe a descrição da tabela 'empregados', incluindo suas famílias de colunas
+  describe 'empregados'
+
+  # Insere um valor na tabela: Adiciona 'Joao' à coluna 'pessoal:nome' para a linha '1'
+  put 'empregados', '1', 'pessoal:nome', 'Joao'
+
+  # Insere um valor na tabela: Adiciona 'Silva' à coluna 'pessoal:sobrenome' para a linha '1'
+  put 'empregados', '1', 'pessoal:sobrenome', 'Silva'
+
+  # Faz uma varredura na tabela 'empregados' e retorna todas as linhas e colunas
+  scan 'empregados'
+
+  # Insere um valor na tabela: Adiciona 'Desenvolvedor' à coluna 'trabalho:cargo' para a linha '1'
+  put 'empregados', '1', 'trabalho:cargo', 'Desenvolvedor'
+
+  # Insere um valor na tabela: Adiciona 99999 à coluna 'trabalho:salario' para a linha '1'
+  put 'empregados', '1', 'trabalho:salario', 99999
+
+  # Faz uma varredura na tabela 'empregados' e retorna todas as linhas e colunas
+  scan 'empregados'
+
+  # Faz uma varredura na tabela 'empregados' filtrando apenas a coluna 'pessoal:nome'
+  scan 'empregados', {COLUMN => 'pessoal:nome'}
+
+  # Recupera todas as colunas da linha '1' na tabela 'empregados'
+  get 'empregados', '1'
+
+  # Recupera somente a coluna 'pessoal:nome' da linha '1' na tabela 'empregados'
+  get 'empregados', '1', {COLUMN => 'pessoal:nome'}
+
+  # Remove o valor da coluna 'trabalho:salario' da linha '1'
+  delete 'empregados', '1', 'trabalho:salario'
+
+  # Faz uma varredura na tabela 'empregados' e retorna todas as linhas e colunas
+  scan 'empregados'
+
+  # Insere/atualiza o valor na tabela: Muda 'pessoal:nome' para 'Pedro' na linha '1'
+  put 'empregados', '1', 'pessoal:nome', 'Pedro'
+
+  # Insere um valor na tabela: Adiciona 100 à coluna 'pessoal:comissao' para a linha '1'
+  put 'empregados', '1', 'pessoal:comissao', 100
+
+  # Altera a tabela 'empregados', adicionando uma nova família de coluna 'perfil'
+  alter 'empregados', 'perfil'
+
+  # Exibe a descrição da tabela 'empregados', incluindo suas famílias de colunas
+  desc 'empregados'
+
+  # Desativa temporariamente a tabela 'empregados' para alterações estruturais
+  disable 'empregados'
+
+  # Reativa a tabela 'empregados' após modificações
+  enable 'empregados'
+
+  # Altera a configuração para a família de coluna 'pessoal', permitindo 3 versões de cada célula
+  alter 'empregados', {NAME => 'pessoal', VERSIONS => 3}
+
+  # Altera a configuração para a família de coluna 'trabalho', permitindo 3 versões de cada célula
+  alter 'empregados', {NAME => 'trabalho', VERSIONS => 3}
+
+  # Insere um valor na tabela: Adiciona 'Ana' à coluna 'pessoal:nome' para a linha '2'
+  put 'empregados', '2', 'pessoal:nome', 'Ana'
+
+  # Atualiza o valor na tabela: Muda 'pessoal:nome' para 'Ana M.' na linha '2'
+  put 'empregados', '2', 'pessoal:nome', 'Ana M.'
+
+  # Atualiza o valor na tabela: Muda 'pessoal:nome' para 'Ana Maria' na linha '2'
+  put 'empregados', '2', 'pessoal:nome', 'Ana Maria'
+
+  # Recupera as três versões mais recentes da coluna 'pessoal:nome' para a linha '2'
+  get 'empregados', '2', {COLUMN => 'pessoal:nome', VERSIONS => 3}
+
+  # Sai do HBase Shell
+  quit
+
+$ firefox localhost:16010
+

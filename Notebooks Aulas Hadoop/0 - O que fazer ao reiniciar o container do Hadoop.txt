@@ -1,0 +1,77 @@
+docker run -d -p 8088:8088 -p 8020:8020 -p 8032:8032 -p 8033:8033 -p 8042:8042 -p 8044:8044 -p 9000:9000 -p 9870:9870 -p 9871:9871 -p 10033:10033 -p 50471:50070 -p 50470:50470 -p 50475:50475 -p 10000:10000 -p 8888:8888 --name ubuntu-rod3 ubuntu-hdfs:v5 tail -f /dev/null
+
+Só funcionaram as portas abaixo
+9870
+8088
+8042
+
+
+>>>>>>>>>>>>>>>>> SENHA DO ROOT É "root" E DO HADOOP É "haddop"<<<<<<<<<<<<<<<<<<<<<<<
+su -
+service ssh start
+su - hadoop
+/opt/hadoop/sbin/start-all.sh
+. /home/hadoop/.bashrc
+beeline
+!connect jdbc:hive2://
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>OUTROS COMANDOS ÚTEIS<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$ rm -rf metastore_db			#DELETA O METASTORE
+$ schematool -dbType derby -initSchema
+$ schematool -dbType derby -initSchema > initSchema.log 2>&1
+$ rm metastore_db/*.lck # SE FALAR QUE TEM OUTRA INSTANCIA DO METASTORE EM CONFLITO
+$ netstat -tuln  					       #Mostra as portas sendo utilizadas
+jps                                  #Lista todos os processos do hadoop em execução
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>COMANDOS HDFS E HIVE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#FORÇAR VARIÁVEIS DE AMBIENTE
+. /home/hadoop/.bashrc
+. /opt/hadoop/etc/hadoop/hadoop-env.sh                 
+. /opt/hadoop/hive/conf/hive-env.sh
+
+#INICIAR OU PARAR SERVIÇOS
+/opt/hadoop/sbin/start-dfs.sh
+/opt/hadoop/sbin/stop-all.sh
+
+>>>>HIVE<<<<<
+beeline
+!connect jdbc:hive2://
+
+>>>>PIG<<<<<
+pig
+grunt> cd hdfs:///
+
+>>>>MONGO<<<<<<
+mongosh --host localhost --port 27017
+
+#COPIAR UM ARQUIVO (JÁ DENTRO DO CONTAINER) PARA DENTRO DO HDFS
+hadoop fs -put {caminho origem} {pasta destino}
+hadoop fs -put /dados/clientes.txt /dados/
+
+
+#DELETAR SCHEMA DO HIVE E CRIAR NOVO
+$ rm metastore_db/*.lck               #EM CASO DA INSTÂNCIA ANTERIOR NÃO TER LIBERADO O LOCK
+$ rm -rf metastore_db
+$ schematool -dbType derby -initSchema
+
+>>>>>>>>>>>>>>>>>>>>>>>>ABRIR O JUPYTER LAB<<<<<<<<<<<<<<<<<<<<<<<<<<<
+jupyter-lab --ip=0.0.0.0 --no-browser --allow-root --NotebookApp.token='' &
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>COMANDOS DOCKER<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,
+#COMITAR UM CONTAINER COMO UMA NOVA IMAGEM
+docker commit {id do container} {nome nova imagem}:{tag}
+docker commit d63bc10f848c ubuntu-hdfs:v5
+
+#COPIAR UM ARQUIVO LOCAL DO HOST PARA O CONTAINER
+docker cp {cainho de origem do arquivo}  {id container}: {pasta destino}
+docker cp C:/dockertransfer/dados.csv    03aaca710dc5  :  /dados/
+
+

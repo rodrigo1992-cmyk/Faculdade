@@ -1,0 +1,71 @@
+>>>>>>>>>>>>SEMPRE QUE RESETAR O CLUSTER PRECISO EXECUTAR OS DOIS COMANDO ABAIXO<<<<<<<<<<<<<<<<<<<<
+$ . /home/hadoop/.bashrc
+$ . /opt/hadoop/etc/hadoop/hadoop-env.sh
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+## Node pseudo-distribuido (mesmo node)
+
+$ cd /opt/hadoop/etc/hadoop
+$ ls core-site.xml (configuração geral do cluster)
+$ ls hdfs-site.xml (configuração do armazenamento)
+$ ls mapred-site.xml.template ou mapred-site.xml (configuração map-reduce)
+$ ls yarn-site.xml (configuração modo de trabalho)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ORIGINALMENTE ESTAVA COMO srv04:9000 e eu troquei para localhost:9000, obrigatório ser a porta 9000, porém no navegador se acessa pela 9870!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!AULA DE 24-04 ÀS 58:25 DE VÍDEO!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+$ vim core-site.xml
+<property>
+  <name>fs.defaultFS</name>
+  <value>hdfs://localhost:9000</value>  
+</property>
+
+$ vim hdfs-site.xml
+<property>
+  <name>dfs.replication</name>
+  <value>1</value>
+</property>
+<property>
+  <name>dfs.namenode.name.dir</name>
+  <value>/dados/namenode</value>
+</property>
+<property>
+  <name>dfs.datanode.data.dir</name>
+  <value>/dados/datanode</value>
+</property>
+
+
+# cd /
+# mkdir -p /dados/namenode
+# mkdir -p /dados/datanode
+# chown -R hadoop:hadoop /dados
+
+!!!!!!!!!!!!!!!!!!!!É PARA EXECUTAR ESSA LINHA INTEIRA, A PALAVRA "OU" FAZ PARTE DO COMANDO!!!!!!!!!!!!!!!!!!!!!!!
+$ hdfs namenode -format
+
+$ which java
+!!!!!!!!!!!!!!!!!!!!!!ESTE ARQUIVO JÁ POSSUÍA A LINHA, ENTÃO NÃO EDITEI NADA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+$ vim $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+  export JAVA_HOME=/home/hadoop/jdk
+
+
+$ reboot
+$ su -
+# ls -ld /opt/hadoop/logs
+# chown -R hadoop:hadoop /opt/hadoop/logs
+# chmod -R 755 /opt/hadoop/logs
+
+
+# su - hadoop
+$ /opt/hadoop/sbin/stop-all.sh
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>PAREI AQUI<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+# su -
+# service ssh start
+# chown -R hadoop:hadoop /dados
+# chmod -R 755 /dados
+# su - hadoop
+$ . /opt/hadoop/etc/hadoop/hadoop-env.sh
+$ hdfs namenode -format
+$ /opt/hadoop/sbin/start-all.sh
+$ cat $HADOOP_HOME/logs/hadoop-*-namenode-*.log

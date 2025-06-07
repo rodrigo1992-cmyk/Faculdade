@@ -1,0 +1,78 @@
+# su - 
+# passwd
+------------digitar senha "root"----------
+# apt-get update
+# apt-get install -y wget
+# apt-get install -y vim
+# apt install openssh-client
+# apt-get install openssh-server
+# apt-get install ufw
+# apt-get install net-tools
+# apt-get install coreutils
+
+# mkdir -p /home/hadoop
+# useradd hadoop
+# cat /etc/passwd
+# chown hadoop:hadoop /home/hadoop
+# passwd hadoop
+------------digitar senha "hadoop"--------
+# mkdir /opt/hadoop
+# chown hadoop:hadoop /opt/hadoop
+# su - hadoop
+$ cd /opt/hadoop
+$ mkdir /home/hadoop/download
+$ cd /home/hadoop/download
+$ wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz
+$ cd /opt/hadoop
+$ tar xvf /home/hadoop/download/hadoop-3.4.0.tar.gz --strip-components=1
+$ ls -l
+
+## https://cwiki.apache.org/confluence/display/hadoop/hadoop+Java+Versions
+
+$ cd /home/hadoop/download
+$ wget https://download.java.net/openjdk/jdk8u44/ri/openjdk-8u44-linux-x64.tar.gz
+$ cd /home/hadoop
+$ tar xvf /home/hadoop/download/openjdk-8u44-linux-x64.tar.gz
+$ mv java-se-8u44-ri jdk
+$ cd jdk/bin
+$ ./java -version
+$ cd /home/hadoop
+$ vim .bashrc
+-------------------ISSO ABRIRÁ O EDITOR DO VIM-------------
+-----APERTAR A TECLA i PARA ENTRAR NO MODO DE INSERÇÃO
+-----COLAR O TEXTO ABAIXO
+  ## HADOOP
+  export HADOOP_HOME=/opt/hadoop
+  export JAVA_HOME=/home/hadoop/jdk
+  export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$JAVA_HOME/bin
+-----APERTAR ESC PARA SAIR DO MODO DE INSERÇÃO
+-----DIGITAR :wq PARA SALVAR E SAIR
+-------------------REINICIAR O CONTAINER--------------------
+$ . /home/hadoop/.bashrc
+$ java
+$ hadoop version
+
+$ cd /opt/hadoop/etc/hadoop
+$ vim hadoop-env.sh
+  export HADOOP_HOME=/opt/hadoop
+  export JAVA_HOME=/home/hadoop/jdk
+  export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+$ . /opt/hadoop/etc/hadoop/hadoop-env.sh
+$ cd /opt/hadoop/share/hadoop
+$ cd mapreduce/
+$ mkdir /tmp/entrada
+$ cp /opt/hadoop/etc/hadoop/*.xml /tmp/entrada
+$ hadoop jar hadoop-mapreduce-examples-3.4.0.jar grep /tmp/entrada /tmp/saida 'dfs'
+$ rm -rf /tmp/saida/
+$ hadoop jar hadoop-mapreduce-examples-3.4.0.jar grep /tmp/entrada /tmp/saida 'a'
+$ ls /tmp/saida
+
+$ cd /home/hadoop
+$ ssh-keygen 
+--------------------SÓ DAR ENTER, NÃO PRECISA INFORMAR O ARQUIVO NEM A PARAPHRASE-------------
+$ cd /home/hadoop/.ssh
+$ cat id_rsa.pub
+$ cp id_rsa.pub authorized_keys
+!!!!!!!!!!!!!!!!!!!!!!!!!!!DEU ERRO AO EXECUTAR O ÚLTIMO COMANDO!!!!!!!!!!!!!!!!!!!!!!!!
+$ ssh srv04

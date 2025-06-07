@@ -1,0 +1,18 @@
+{
+    "order_id": "47770eb9100c2d0c44946d9cf07ec65d",
+    "order_purchase_timestamp": "2018-08-08 08:38:49",
+    "customer_id": "41ce2a54c0b03bf3443c3d931a367089",
+    "payment_type": "credit_card",
+    "payment_value": 179.12,
+    "items": [
+        {
+            "order_id": "47770eb9100c2d0c44946d9cf07ec65d",
+            "order_item_id": 1,
+            "product_id": "aa4383b373c6aca5d8797843e5594415",
+            "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+            "shipping_limit_date": "2018-08-13 08:55:23",
+            "price": 159.9,
+            "freight_value": 19.22
+        }
+    ]
+}

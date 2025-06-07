@@ -1,0 +1,36 @@
+{
+    "order_id": "00143d0f86d6fbd9f9b38ab440ac16f5",
+    "order_purchase_timestamp": "2017-10-02 10:56:33",
+    "customer_id": "9ef432eb6251297304e76186b10a928d",
+    "payment_type": "credit_card",
+    "payment_value": 109.29,
+    "items": [
+        {
+            "order_id": "00143d0f86d6fbd9f9b38ab440ac16f5",
+            "order_item_id": 1,
+            "product_id": "e95ee6822b66ac6058e2e4aff656071a",
+            "seller_id": "a17f621c590ea0fab3d5d883e1630ec6",
+            "shipping_limit_date": "2017-10-20 16:07:52",
+            "price": 21.33,
+            "freight_value": 15.1
+        },
+        {
+            "order_id": "00143d0f86d6fbd9f9b38ab440ac16f5",
+            "order_item_id": 2,
+            "product_id": "e95ee6822b66ac6058e2e4aff656071a",
+            "seller_id": "a17f621c590ea0fab3d5d883e1630ec6",
+            "shipping_limit_date": "2017-10-20 16:07:52",
+            "price": 21.33,
+            "freight_value": 15.1
+        },
+        {
+            "order_id": "00143d0f86d6fbd9f9b38ab440ac16f5",
+            "order_item_id": 3,
+            "product_id": "e95ee6822b66ac6058e2e4aff656071a",
+            "seller_id": "a17f621c590ea0fab3d5d883e1630ec6",
+            "shipping_limit_date": "2017-10-20 16:07:52",
+            "price": 21.33,
+            "freight_value": 15.1
+        }
+    ]
+}
